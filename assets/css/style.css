@@ -1,0 +1,43 @@
+body {
+    background-color: rgba(0, 0, 0, 0.623);
+}
+
+h1 {
+    font-family: Lobster;
+}
+
+.ratings {
+    color:powderblue;
+    font-family: avenir;
+    font-size: 250%;
+}
+
+h1 {
+    color: black;
+    font-size: 45px;
+}
+
+.btn-primary {
+    margin-left: 10px;
+    background: pink;
+    color: blue;
+    font-family: 'Lora', serif;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 480px) {
+    .movImage {
+        width: 500px;
+        height: 500px;
+    }
+    
+}
+
+.form-control {
+    width: 30%;
+}
+
+#add {
+    font-size: 20px;
+    color:black;
+}
