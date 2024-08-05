@@ -71,10 +71,6 @@ GIFS-
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
-
-
-
-
 ```
 * `api/`Contains serverless functions for handling API requests
   * `search.js` A serverless function that interacts with the Giphy API to search for GIFs. It handles incoming requests, performs the search, and returns the results.
@@ -134,4 +130,3 @@ GIFS-
 
 ## Contact
 carisasaenz@gmail.com
-
