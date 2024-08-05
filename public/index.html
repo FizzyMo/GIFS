@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gif Memes</title>
+    <!-- Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"> 
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Hall of Memes</h1>
+        <br><br>
+        <!-- Container for buttons -->
+        <div class="row">
+        <div class="col-md-12 text-center" id="rando-buttons"></div>
+        </div>
+        <br><br>
+        <!-- Form for user input -->
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3" id="btn">
+            <form id="rando-form" class="text-center">
+              <label id="add" for="rando-input">Type a word to see it come Alive</label>
+              <div class="input-group center-input">
+                <input type="text" class="form-control" id="rando-input" />
+                <span class="input-group-btn">
+                  <button
+                    onclick="submitButtonClicked()"
+                    type="button"
+                    id="add-random"
+                    class="btn btn-success submit-button"
+                  >
+                    Submit
+                  </button>
+                </span>
+              </div>
+              <br /><br />
+            </form>
+            
+          </div>
+        </div>
+        <!-- Container for displaying GIFs -->
+        <div id="random"></div>
+      </div>
+      <!-- jQuery and Bootstrap JavaScript for functionality -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="/assets/javascript/main.js"></script>
+</body>
+</html>

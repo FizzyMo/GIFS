@@ -1,0 +1,56 @@
+body {
+    background-color: rgba(0, 0, 0, 0.623);
+}
+
+h1 {
+    font-family: Lobster;
+    color: black;
+    font-size: 45px;
+}
+
+.ratings {
+    color: powderblue;
+    font-family: avenir;
+    font-size: 250%;
+}
+
+.btn-primary {
+    margin-left: 10px;
+    background: pink;
+    color: blue;
+    font-family: 'Lora', serif;
+    font-size: 25px;
+}
+
+/* Add styles for containers with transparent backgrounds */
+.container {
+    background: transparent; 
+}
+
+@media screen and (max-width: 480px) {
+    .movImage {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+.center-input {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#add {
+    font-size: 20px;
+    color: black;
+}
+
+.form-control {
+  width: 20%;
+  
+}
+
+.movImage {
+  width: 250px;
+  height: 250px;
+  padding-bottom: 10px;
+}

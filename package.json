@@ -1,0 +1,18 @@
+{
+  "name": "gifs-master",
+  "version": "1.0.0",
+  "description": "A simple website with a few buttons on load. Type in the box to add your own GIFS.  Then click on the pictures below to see them in action",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
