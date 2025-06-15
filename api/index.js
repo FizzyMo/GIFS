@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = (req, res) => {
-    const filePath = path.join(__dirname, '../public/index.html');
+    const filePath = path.join(__dirname, '.index.html');
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             res.status(500).send('Error reading index.html');

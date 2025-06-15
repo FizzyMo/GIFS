@@ -59,7 +59,7 @@ function searchGif(gifName) {
     })
     .fail(function () {
         // If request fails show error message to user
-        $('#random').html('<p class="text-danger">Error fetching GIFs. Please try again later.</p>'); // Show error message to user
+        $('#random').html('<p class="text-danger">Error fetching GIFs: ' + error.status + ' ' + error.statusText + '</p>');
     });
     
 }
