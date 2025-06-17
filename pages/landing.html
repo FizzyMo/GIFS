@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"> 
@@ -20,32 +20,67 @@
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: #b8c9e0;">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center gap-4" href="#">
-        <img src="assets/images/Logo Icon Favicon 500x443.png" alt="Logo" width="30" height="30">      
+      <a class="navbar-brand d-flex align-items-center gap-4" href="../index.html">
+        <img src="../assets/images/Logo Icon Favicon 500x443.png" alt="Logo" width="30" height="30">      
       </a>
       <button class="navbar-toggler p-2 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars fa-sm" style="color: #f84d98;"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="pages/landing.html">GIF Hub</a>
-          <a class="nav-link" href="pages/about.html">About</a>
-          <a class="nav-link" href="pages/contact.html">Contact</a>
+          <a class="nav-link" href="landing.html">GIF Hub</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="contact.html">Contact</a>
         </div> 
       </div>
     </div>
   </nav>
-    <footer style="background-color: #dce4ef;" class="text-center text-lg-start mt-5 border-top">
+    <div class="container">
+        <h1 class="text-center">Hall of Memes</h1>
+        <br><br>
+        <!-- Container for buttons -->
+        <div class="row">
+        <div class="col-md-12 text-center" id="rando-buttons"></div>
+        </div>
+        <br><br>
+        <!-- Form for user input -->
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3" id="btn">
+            <form id="rando-form" class="text-center">
+              <label id="add" for="rando-input">Type a word to see it come Alive</label>
+              <div class="input-group center-input">
+                <input type="text" class="form-control" id="rando-input" />
+                <span class="input-group-btn">
+                  <button
+                    onclick="submitButtonClicked()"
+                    type="button"
+                    id="add-random"
+                    class="btn btn-success submit-button"
+                  >
+                    Submit
+                  </button>
+                </span>
+              </div>
+              <br /><br />
+            </form>
+            
+          </div>
+        </div>
+        <!-- Container for displaying GIFs -->
+        <div id="random"></div>
+      </div>
+      <!-- jQuery and Bootstrap JavaScript for functionality -->
+       <footer style="background-color: #dce4ef;" class="text-center text-lg-start mt-5 border-top">
   <div class="container p-4">
     <div class="row">
       <!-- Navigation Links -->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase">Navigation</h5>
         <ul class="list-unstyled mb-0">
-          <li><a href="index.html" class="text-dark text-decoration-none">Home</a></li>
-          <li><a href="./pages/about.html" class="text-dark text-decoration-none">About</a></li>
-          <li><a href="./pages/contact.html" class="text-dark text-decoration-none">Contact</a></li>
-          <li><a href="./pages/landing.html" class="text-dark text-decoration-none">App</a></li>
+          <li><a href="../index.html" class="text-dark text-decoration-none">Home</a></li>
+          <li><a href="about.html" class="text-dark text-decoration-none">About</a></li>
+          <li><a href="contact.html" class="text-dark text-decoration-none">Contact</a></li>
+          <li><a href="landing.html" class="text-dark text-decoration-none">App</a></li>
         </ul>
       </div>
 
@@ -69,6 +104,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript -->
-    <script src="assets/javascript/main.js"></script>
+    <script src="../assets/javascript/main.js"></script>
 </body>
 </html>
