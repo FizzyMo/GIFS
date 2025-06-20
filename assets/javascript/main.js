@@ -2,117 +2,98 @@
 var ranArray = ["Lana Del Rey", "Dogs", "Birds", "Snow", "Ice Cream"];
 
 $(document).ready(function () {
+    // Append buttons
     for (var i = 0; i < ranArray.length; i++) {
-        $("#rando-buttons").append("<button type='button' onclick='searchGif(\"" + ranArray[i] + "\")' class='btn btn-primary' value=' "
-            + ranArray[i] + "'> " + ranArray[i] + " </button>");
+        $("#rando-buttons").append(
+            "<button type='button' onclick='searchGif(\"" + ranArray[i] + "\")' class='btn btn-primary' value='" +
+            ranArray[i] + "'>" + ranArray[i] + "</button>"
+        );
     }
 
-    $("#rando-input").on("keypress", function(event) {
-        if (event.which === 13) { 
-            event.preventDefault(); 
-            submitButtonClicked(); 
+    // Enter key submits form
+    $("#rando-input").on("keypress", function (event) {
+        if (event.which === 13) {
+            event.preventDefault();
+            submitButtonClicked();
         }
     });
+
+    // Load Hero GIF on page load
+    loadHeroGif();
 });
 
-// Function to handle clicks on random input buttons
-function randoButtonClicked() {
-    var userInput = $('#rando-input').val();
-    userInput.preventDefault();
-
-    // Trigger GIF search with user input
-    searchGif(userInput);
-}
-
-// Function to handle form submission
+// Handle form submission
 function submitButtonClicked() {
-    // Trim input
-    var userInput = $('#rando-input').val().trim(); 
-
-    // Check for non-empty input
-    if (userInput !== "") { 
-        // Search for GIFs
-        searchGif(userInput);  
-
-        // Clear the input field 
-        $('#rando-input').val(''); 
+    var userInput = $('#rando-input').val().trim();
+    if (userInput !== "") {
+        searchGif(userInput);
+        $('#rando-input').val('');
     }
 }
 
-// Function to perform AJAX request to search for GIFs
+// Search GIFs via /api/search endpoint
 function searchGif(gifName) {
     const searchUrl = '/api/search?q=' + encodeURIComponent(gifName) + '&limit=20';
-    
-    $.ajax({
-        // Request URL with user input
-        url: searchUrl,
-        
 
-        // GET method for retrieving data
-        type: 'GET',
+    $.ajax({
+        url: searchUrl,
+        type: 'GET'
     })
-    
-    .done(function (response) {
-        // Display GIFs if request is successful
-        displayGif(response);
-        
-    })
-    .fail(function () {
-        // If request fails show error message to user
-        $('#random').html('<p class="text-danger">Error fetching GIFs: ' + error.status + ' ' + error.statusText + '</p>');
-    });
-    
+        .done(function (response) {
+            displayGif(response);
+        })
+        .fail(function (error) {
+            $('#random').html('<p class="text-danger">Error fetching GIFs: ' + error.status + ' ' + error.statusText + '</p>');
+        });
 }
 
-
-// Function to display GIFs on the page
+// Display GIFs on the page
 function displayGif(response) {
-    // Clear any existing GIFs
     $('#random').empty();
 
-    // Limit to 20 GIFs
-    const gifs = response.data.slice(0,20);
+    const gifs = response.data.slice(0, 20);
     for (var i = 0; i < gifs.length; i++) {
-        // Create image element
-        var image = '<img src= " ' + response.data[i].images.fixed_height_still.url +
-            '" data-still=" ' + response.data[i].images.fixed_height_still.url +
-            ' " data-animate=" ' + response.data[i].images.fixed_height.url + '" data-state="still" class="movImage"';
-
-        image = '<div class="col-md-3">' + image + "</div>";
-
-        // Append image to the container
-        $('#random').append(image);
+        var image = '<img src="' + gifs[i].images.fixed_height_still.url +
+            '" data-still="' + gifs[i].images.fixed_height_still.url +
+            '" data-animate="' + gifs[i].images.fixed_height.url +
+            '" data-state="still" class="movImage">';
+        $('#random').append('<div class="col-md-3">' + image + '</div>');
     }
 
-    // Event handler for clicking on GIFs to toggle animation
+    // Toggle GIF animation
     $('.movImage').on('click', function () {
         var state = $(this).attr('data-state');
-        if (state == 'still') {
-            // Change to animated GIF
+        if (state === 'still') {
             $(this).attr('src', $(this).attr("data-animate"));
             $(this).attr('data-state', 'animate');
         } else {
-            // Change to still GIF
             $(this).attr('src', $(this).attr("data-still"));
             $(this).attr('data-state', 'still');
         }
-
     });
-    // Load Hero Background Dynamically
-function loadHeroGif() {
-  const heroGifContainer = document.getElementById('hero-gif');
-  if (!heroGifContainer) return;
-
-  fetch('./api/hero')
-    .then(res => res.json())
-    .then(data => {
-      const gifUrl = data.data.images.original.url;
-      heroGifContainer.style.backgroundImage = `url('${gifUrl}')`;
-    })
-    .catch(err => console.error('Failed to load hero gif', err));
 }
 
-// Call the function after DOM is ready
-document.addEventListener('DOMContentLoaded', loadHeroGif);
+// Load hero GIF background
+function loadHeroGif() {
+    console.log("Running loadHeroGif");
 
+    const heroGifContainer = document.getElementById('hero-gif');
+    if (!heroGifContainer) {
+        console.warn("Hero container not found in DOM");
+        return;
+    }
+
+    fetch('/api/hero')
+        .then(res => {
+            if (!res.ok) throw new Error("Fetch failed with status " + res.status);
+            return res.json();
+        })
+        .then(data => {
+            console.log("Hero GIF data received:", data);
+            const gifUrl = data.data.images.original.url;
+            heroGifContainer.style.backgroundImage = `url('${gifUrl}')`;
+        })
+        .catch(err => {
+            console.error('Failed to load hero gif', err);
+        });
 }
