@@ -98,4 +98,21 @@ function displayGif(response) {
         }
 
     });
+    // Load Hero Background Dynamically
+function loadHeroGif() {
+  const heroGifContainer = document.getElementById('hero-gif');
+  if (!heroGifContainer) return;
+
+  fetch('/api/hero')
+    .then(res => res.json())
+    .then(data => {
+      const gifUrl = data.data.images.original.url;
+      heroGifContainer.style.backgroundImage = `url('${gifUrl}')`;
+    })
+    .catch(err => console.error('Failed to load hero gif', err));
+}
+
+// Call the function after DOM is ready
+document.addEventListener('DOMContentLoaded', loadHeroGif);
+
 }
