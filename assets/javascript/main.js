@@ -103,7 +103,7 @@ function loadHeroGif() {
   const heroGifContainer = document.getElementById('hero-gif');
   if (!heroGifContainer) return;
 
-  fetch('../api/hero')
+  fetch('./api/hero')
     .then(res => res.json())
     .then(data => {
       const gifUrl = data.data.images.original.url;
