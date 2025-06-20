@@ -97,3 +97,30 @@ function loadHeroGif() {
             console.error('Failed to load hero gif', err);
         });
 }
+
+// Function to load and display trending GIFs
+function loadTrendingGifs() {
+  fetch('/api/trending')
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('trending-gifs');
+      if (!container) return;
+
+      const gifs = data.data.slice(0, 5); // Limit to 5
+      gifs.forEach(gif => {
+        const img = document.createElement('img');
+        img.src = gif.images.fixed_height.url;
+        img.alt = gif.title;
+        img.className = 'm-2';
+        img.style.width = '200px';
+        img.style.height = '200px';
+        container.appendChild(img);
+      });
+    })
+    .catch(err => console.error('Failed to load trending gifs', err));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadHeroGif();
+  loadTrendingGifs();
+});
