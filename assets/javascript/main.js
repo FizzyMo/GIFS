@@ -75,11 +75,9 @@ function displayGif(response) {
 
 // Load hero GIF background
 function loadHeroGif() {
-    console.log("Running loadHeroGif");
-
     const heroGifContainer = document.getElementById('hero-gif');
     if (!heroGifContainer) {
-        console.warn("Hero container not found in DOM");
+        
         return;
     }
 
@@ -89,12 +87,12 @@ function loadHeroGif() {
             return res.json();
         })
         .then(data => {
-            console.log("Hero GIF data received:", data);
+            
             const gifUrl = data.data.images.original.url;
             heroGifContainer.style.backgroundImage = `url('${gifUrl}')`;
         })
         .catch(err => {
-            console.error('Failed to load hero gif', err);
+            
         });
 }
 
@@ -117,7 +115,7 @@ function loadTrendingGifs() {
         container.appendChild(img);
       });
     })
-    .catch(err => console.error('Failed to load trending gifs', err));
+    
 }
 
 document.addEventListener('DOMContentLoaded', () => {

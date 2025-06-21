@@ -14,7 +14,6 @@ module.exports = async (req, res) => {
 
     res.status(200).json(response.data);
   } catch (error) {
-    console.error('Error fetching trending GIFs:', error);
-    res.status(500).send('Failed to fetch trending GIFs');
+    
   }
 };

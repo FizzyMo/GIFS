@@ -13,7 +13,6 @@ module.exports = async (req, res) => {
 
         res.status(200).json(response.data);
     } catch (error) {
-        console.error('Error fetching hero GIF:', error);
-        res.status(500).send('Failed to fetch hero GIF');
+        
     }
 };
