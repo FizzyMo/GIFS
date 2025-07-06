@@ -206,8 +206,22 @@
   font-size: 18px;
   transition: color 0.2s ease;
 }
-
 /* About, End */
+#contact-form input,
+#contact-form textarea {
+  border-radius: 8px;
+  font-family: "Lora", serif;
+  min-width: 50%; /* Ensures inputs take full width initially */
+}
+
+.auto-expand {
+  min-width: 250px;
+  max-width: 100%;
+  transition: width 0.3s ease;
+}
+
+
+
 /* main.js, Start */
 .btn-primary {
     margin-left: 10px;
