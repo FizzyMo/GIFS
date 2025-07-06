@@ -1,12 +1,13 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  const { email, message } = req.body;
+  const { email, subject, message } = req.body;
   const FORMSPREE_ENDPOINT = process.env.FORMSPREE_ENDPOINT;
 
   try {
     const response = await axios.post(FORMSPREE_ENDPOINT, {
       email,
+      subject,
       message
     }, {
       headers: {
