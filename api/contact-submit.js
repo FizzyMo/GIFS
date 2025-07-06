@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
 
   try {
     const response = await axios.post(FORMSPREE_ENDPOINT, {
-      email,
+      _replyto: email,
       subject,
       message
     }, {
