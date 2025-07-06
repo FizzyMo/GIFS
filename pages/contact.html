@@ -67,68 +67,64 @@
     </nav>
     <!-- Navbar, End -->
 
-    <div class="container mt-5 mb-5" style="max-width: 700px">
-      <h2 class="text-center mb-4">Contact Me</h2>
+    <div class="container mt-5 mb-5" style="max-width: 700px;">
+    <h2 class="text-center mb-4">Contact Me</h2>
+    <div id="form-alert" class="mb-3"></div>
 
-      <!-- Message alert box -->
-      <div id="form-alert" class="mb-3"></div>
-
-      <form id="contact-form" method="POST">
-        <!-- Email -->
-        <div class="mb-3 row align-items-center">
-          <label for="email" class="col-sm-3 col-form-label text-end"
-            >Email</label
-          >
-          <div class="col-sm-9">
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              required
-            />
-          </div>
+    <form id="contact-form" method="POST">
+      <!-- Full Name -->
+      <div class="mb-3 row">
+        <label for="name" class="col-sm-3 col-form-label text-end">Full Name</label>
+        <div class="col-sm-9">
+          <input type="text" id="name" name="name" class="form-control" required />
         </div>
+      </div>
 
-        <!-- Subject -->
-        <div class="mb-3 row align-items-center">
-          <label for="subject" class="col-sm-3 col-form-label text-end"
-            >Subject</label
-          >
-          <div class="col-sm-9">
-            <input
-              type="text"
-              class="form-control"
-              id="subject"
-              name="subject"
-              required
-            />
-          </div>
+      <!-- Email -->
+      <div class="mb-3 row">
+        <label for="email" class="col-sm-3 col-form-label text-end">Email</label>
+        <div class="col-sm-9">
+          <input type="email" id="email" name="email" class="form-control" required />
         </div>
+      </div>
 
-        <!-- Message -->
-        <div class="mb-3 row align-items-start">
-          <label for="message" class="col-sm-3 col-form-label text-end"
-            >Message</label
-          >
-          <div class="col-sm-9">
-            <textarea
-              class="form-control"
-              id="message"
-              name="message"
-              rows="5"
-              required
-              oninput="this.style.height='auto'; this.style.height=this.scrollHeight + 'px';"
-            ></textarea>
-          </div>
+      <!-- Phone -->
+      <div class="mb-3 row">
+        <label for="phone" class="col-sm-3 col-form-label text-end">Phone</label>
+        <div class="col-sm-9">
+          <input type="tel" id="phone" name="phone" class="form-control" />
         </div>
+      </div>
 
-        <!-- Submit button -->
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary px-4">Send</button>
+      <!-- Subject -->
+      <div class="mb-3 row">
+        <label for="subject" class="col-sm-3 col-form-label text-end">Subject</label>
+        <div class="col-sm-9">
+          <input type="text" id="subject" name="subject" class="form-control" required />
         </div>
-      </form>
-    </div>
+      </div>
+
+      <!-- Message -->
+      <div class="mb-3 row">
+        <label for="message" class="col-sm-3 col-form-label text-end">Message</label>
+        <div class="col-sm-9">
+          <textarea
+            id="message"
+            name="message"
+            class="form-control"
+            rows="5"
+            required
+            oninput="this.style.height='auto'; this.style.height=this.scrollHeight + 'px';"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-4">Send</button>
+      </div>
+    </form>
+  </div>
 
     <!-- Footer, Start -->
     <footer
