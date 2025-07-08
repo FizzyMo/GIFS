@@ -1,5 +1,6 @@
 ![Header](https://github.com/user-attachments/assets/a039ce3a-a652-4d0a-be3e-b0ee4b55c83c)
-# Gif Memes
+
+<h1 align="center">Inloop</h1>
 
 ## Description
 Gif Memes is a simple web application that allows users to search for and view GIFs. Users can type a keyword into a text box and submit it to retrieve GIFs related to the keyword from the Giphy API. The application displays the GIFs in a grid layout, where users can click on the GIFs to toggle between still and animated states.
