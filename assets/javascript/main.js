@@ -1,12 +1,25 @@
 // Array of predefined GIF search terms
-var ranArray = ["Lana Del Rey", "Dogs", "Birds", "Snow", "Ice Cream"];
+var ranArray = ["Applause", "Facepalm", "Happy Dance", "Crying", "Angry", "Eye Roll", "Facepalm", "Hi", "Crying", "Tired", "No", "Sad", "Hair Flip", "Bet", "Great Job"];
+var buttonColors = ["#4DA3FF", "#FF99A8", "#4DD9A3", "#ffd633", "#9B6BFF"];
+
+// Shuffle function (Fisher-Yates)
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 $(document).ready(function () {
-    // Append buttons
+    // Shuffle the array each time the page loads
+    ranArray = shuffle(ranArray).slice(0, 5);
+
     for (var i = 0; i < ranArray.length; i++) {
         $("#rando-buttons").append(
-            "<button type='button' onclick='searchGif(\"" + ranArray[i] + "\")' class='btn btn-primary' value='" +
-            ranArray[i] + "'>" + ranArray[i] + "</button>"
+            "<button type='button' onclick='searchGif(\"" + ranArray[i] + "\")' class='btn' " +
+            "style='background-color: " + buttonColors[i % buttonColors.length] + "; border-color: " + buttonColors[i % buttonColors.length] +
+            "; color: #1a1a1a;' value='" + ranArray[i] + "'>" + ranArray[i] + "</button>"
         );
     }
 

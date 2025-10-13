@@ -1,13 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize EmailJS
+  emailjs.init("81ZznBEnCzQtkdxvA");
+
   const form = document.getElementById("contact-form");
   const alertBox = document.getElementById("form-alert");
+  const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const formData = {
-      fullName: document.getElementById("name").value,
-      email: document.getElementById("email").value,
+// Show loading state
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    const templateParams = {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
       phone: document.getElementById("phone").value,
       subject: document.getElementById("subject").value,
       message: document.getElementById("message").value,
